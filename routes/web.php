@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/testing', function () {
-    return view('hello');
-});
-
-route::get('/parent', function(){
-    return view('admin.parent');
-});
-
-route::resource('/about', AboutController::class);
-
-route::get('/profile-index', [ProfileController::class, 'index']) ->name('profileroute');
+//route for adminController with resource
+Route::resource('Admin', AdminController::class);
