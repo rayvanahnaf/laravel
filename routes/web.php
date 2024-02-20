@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::resource('Admin', AdminController::class);
 
 route::resource('category', categoryController::class);
+
+//MVC
