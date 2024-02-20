@@ -1,15 +1,24 @@
 @extends('admin.parent')
 
 @section('content')
-ini halaman index category  
+    ini halaman index category
 
-<div class="card p-4">
-    <h1>Category Index</h1>
+    
+        <div class="card p-4">
 
-    <hr>
+            <h1>Create Category</h1>
 
-    <div class="d-flex justify-contend-end">
-        <a href="{{ route('category.create') }}" class="btn btn-success">Create Category</a>
-    </div>
-</div>
+            <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
+                <div class="form-floating mb-3">
+                    <input type="" class="form-control" id="floatingInput" placeholder="kesehatan" name="name">
+                    <label for="floatingInput">Name Category</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+
+            </form>
+
+        </div>
 @endsection

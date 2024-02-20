@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class categoryController extends Controller
@@ -34,7 +36,18 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //lakukan function store
+        $this->validate($request,[
+            'name'=> 'required'
+        ]);
+        //simpan data dalam database
+        Category::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
+        ]);
+
+        //jika sudah return ke halaman category.index
+        return redirect()->route('category.index');
     }
 
     /**
